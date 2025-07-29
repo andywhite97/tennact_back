@@ -6,6 +6,8 @@ django-resized==1.0.3
 django-rest-auth==0.9.5
 django-restframework==0.0.1
 djangorestframework==3.16.0
+gunicorn==23.0.0
+packaging==25.0
 pillow==11.3.0
 psycopg==3.2.9
 psycopg2==2.9.10
