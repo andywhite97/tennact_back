@@ -1,0 +1,16 @@
+asgiref==3.9.1
+Django==5.2.4
+django-allauth==65.10.0
+django-cors-headers==4.7.0
+django-resized==1.0.3
+django-rest-auth==0.9.5
+django-restframework==0.0.1
+djangorestframework==3.16.0
+pillow==11.3.0
+psycopg==3.2.9
+psycopg2==2.9.10
+python-dotenv==1.1.1
+rest-framework-jwt==0.0.1
+six==1.17.0
+sqlparse==0.5.3
+tzdata==2025.2
