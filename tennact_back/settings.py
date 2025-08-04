@@ -149,11 +149,12 @@ else:
     send_default_pii=True
     )
     
-cloudinary.config(
-    cloud_name="dhdq5bn6d",
-    api_key="792331979389639",
-    api_secret="your_api_secret"
-)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dhdq5bn6d',
+    'API_KEY': '792331979389639',
+    'API_SECRET': 'eMJUShGVSCkq5P-APPFO8qV7hlo'
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
