@@ -34,7 +34,7 @@ if DEBUG is False:
     CSRF_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
 
-    ALLOWED_HOSTS = ['https://tennact-back.onrender.com', '127.0.0.1']
+    ALLOWED_HOSTS = ['tennact-back.onrender.com', '127.0.0.1']
 
 else:
     SESSION_COOKIE_SECURE = False
