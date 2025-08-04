@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
-from rest_framework.parsers import FileUploadParser
+from rest_framework.parsers import FileUploadParser, MultiPartParser, FormParser
 
 class RegisterView(generics.CreateAPIView):
     queryset = Account.objects.all()
@@ -30,7 +30,7 @@ class UploadProfileImage(APIView):
             raise Http404
 
 class AccountList(APIView):
-    parser_class = (FileUploadParser,)
+    parser_class = (FileUploadParser, MultiPartParser, FormParser)
     """
     List logged in account, or create a new account.
     """
@@ -47,9 +47,8 @@ class AccountList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        user = self.get_object(request.user)
         print(ProfileImageSerializer(data=request.data))
-        serializer = ProfileImageSerializer(user, data=request.data)
+        serializer = ProfileImageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

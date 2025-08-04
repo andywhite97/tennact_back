@@ -18,6 +18,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib import admin
+
+admin.site.site_header = 'Tennact Administration'
+admin.site.site_title = 'Tennact Site'
+admin.site.index_title= 'Tennact Administration' 
 
 urlpatterns = [
     path('admin/', admin.site.urls),

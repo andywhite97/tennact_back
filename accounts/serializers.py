@@ -3,20 +3,23 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
+
+class ProfileImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileImage
+        fields = "__all__"
+
 class AccountSerializer(serializers.ModelSerializer):
+    profile_image = ProfileImageSerializer(many=False)
     class Meta:
         model = Account
-        fields = ['image', 'email', 'address', 'bio', 'first_name', 'last_name', 'is_agent', 'phone_number', 'is_verified']
+        fields = ['id', 'email', 'address', 'bio', 'first_name', 'last_name', 'is_agent', 'phone_number', 'is_verified', 'profile_image']
 
 class UpdateAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ['address', 'bio']
 
-class ProfileImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Account
-        fields = ['image']
 
 class RegisterSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(

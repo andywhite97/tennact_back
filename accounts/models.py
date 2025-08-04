@@ -17,7 +17,6 @@ class Account(AbstractUser):
 
     objects = AccountManager()
     
-    image = models.ImageField(upload_to='Profile Images', null=True)
     bio = models.TextField(null=True)
 
     phone_number = models.CharField(max_length=15, blank=True, null=True)
@@ -29,7 +28,17 @@ class Account(AbstractUser):
     def __str__(self):
         return self.email
     
+    def profile_image(self):
+        return self.profile_images.last() # type: ignore
+    
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+
+class ProfileImage(models.Model):
+    account = models.ForeignKey(Account, models.CASCADE, related_name='profile_images')
+    image = models.ImageField(upload_to='Profile Images', null=True)
+
+    def __str__(self):
+        return self.account.email
