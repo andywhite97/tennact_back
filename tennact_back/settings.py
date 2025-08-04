@@ -55,10 +55,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
-    'cloudinary',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'cloudinary_storage',
+    'cloudinary',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
@@ -200,10 +200,6 @@ if DEBUG is True:
 else:
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-STATIC_URL = 'static/'
-
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
